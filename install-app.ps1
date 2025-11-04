@@ -101,7 +101,7 @@ function Show-Menu {
                 Install-List "Chat Apps" $chatApps
                 Install-List "Work Apps" $workApps
                 Install-List "Game Apps" $gameApps
-                Install-List "Utility Apps" $vpnApps
+                Install-List "VPN Apps" $vpnApps
                 Install-List "Utility Apps" $utilityApps
             }
             "2" { Install-List "Chat Apps" $chatApps }
