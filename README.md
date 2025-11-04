@@ -3,6 +3,7 @@ Tự động cài đặt các ứng dụng hay sử dụng khi cài đặt lại
 Tất cả code đều được viết bằng CHATGPT và được kiểm tra tính hợp lý.
 
 Các APP:
+
 <Strong>Chat:</Strong> Telegram, Zalo, Discord
 
 Work: Visual Studio Code, Visual Studio 2022 Community, Blender, OBS Studio, DaVinci Resolve, Git, Java JDK (Latest)
