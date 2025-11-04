@@ -43,7 +43,8 @@ $workApps = @(
     @{ Name = "OBS Studio"; Id = "OBSProject.OBSStudio" },
     @{ Name = "DaVinci Resolve"; Id = "BlackmagicDesign.DaVinciResolve" },
     @{ Name = "Git"; Id = "Git.Git" },
-    @{ Name = "Java JDK (Latest)"; Id = "Oracle.JDK.23" }
+    @{ Name = "Java JDK (Latest)"; Id = "Oracle.JDK.23" },
+    @{ Name = "Notion"; Id = "Notion.Notion" }
 )
 
 $gameApps = @(
@@ -58,15 +59,17 @@ $gameApps = @(
     @{ Name = "DLSS Wrapper"; Id = "emoose.DLSSWrapper" }
 )
 
+$vpnApps = @(
+    @{ Name = "Tailscale"; Id = "Tailscale.Tailscale" },
+    @{ Name = "Cloudflare 1.1.1.1 (Warp)"; Id = "Cloudflare.Warp" }
+)
+
 $utilityApps = @(
-    @{ Name = "Notion"; Id = "Notion.Notion" },
     @{ Name = "Google Chrome"; Id = "Google.Chrome" },
     @{ Name = "PowerToys"; Id = "Microsoft.PowerToys" },
     @{ Name = "7-Zip"; Id = "7zip.7zip" },
     @{ Name = "Twinkle Tray"; Id = "xanderfrangos.twinkletray" },
-    @{ Name = "Cloudflare 1.1.1.1 (Warp)"; Id = "Cloudflare.Warp" },
     @{ Name = "Google Quick Share"; Id = "Google.QuickShare" },
-    @{ Name = "Tailscale"; Id = "Tailscale.Tailscale" },
     @{ Name = "Sandboxie Plus"; Id = "Sandboxie.Plus" },
     @{ Name = "Fan Control"; Id = "Rem0o.FanControl" },
     @{ Name = "MSEdgeRedirect"; Id = "rcmaehl.MSEdgeRedirect" },
@@ -85,8 +88,9 @@ function Show-Menu {
         Write-Host "2. Install Chat Apps"
         Write-Host "3. Install Work Apps"
         Write-Host "4. Install Game Apps"
-        Write-Host "5. Install Utility Apps"
-        Write-Host "6. Choose manually"
+        Write-Host "5. Install VPN Apps"
+        Write-Host "6. Install Utility Apps"
+        Write-Host "9. Choose manually"
         Write-Host "0. Exit"
         Write-Host ""
 
@@ -97,13 +101,15 @@ function Show-Menu {
                 Install-List "Chat Apps" $chatApps
                 Install-List "Work Apps" $workApps
                 Install-List "Game Apps" $gameApps
+                Install-List "Utility Apps" $vpnApps
                 Install-List "Utility Apps" $utilityApps
             }
             "2" { Install-List "Chat Apps" $chatApps }
             "3" { Install-List "Work Apps" $workApps }
             "4" { Install-List "Game Apps" $gameApps }
-            "5" { Install-List "Utility Apps" $utilityApps }
-            "6" {
+            "5" { Install-List "VPN Apps" $vpnApps }
+            "6" { Install-List "Utility Apps" $utilityApps }
+            "9" {
                 $allApps = @()
                 $index = 1
 
@@ -123,6 +129,13 @@ function Show-Menu {
 
                 Write-Host "`n--- GAME APPS ---" -ForegroundColor Cyan
                 foreach ($app in $gameApps) {
+                    Write-Host ("{0}. {1}" -f $index, $app.Name)
+                    $index++
+                    $allApps += $app
+                }
+
+                Write-Host "`n--- VPN APPS ---" -ForegroundColor Cyan
+                foreach ($app in $vpnApps) {
                     Write-Host ("{0}. {1}" -f $index, $app.Name)
                     $index++
                     $allApps += $app
