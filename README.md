@@ -1,5 +1,7 @@
 Tự động cài đặt các ứng dụng hay sử dụng khi cài đặt lại thiết bị bằng PowerShell
 
+Cài đặt:  powershell.exe -ExecutionPolicy Bypass -File "install-app.ps1"
+
 Tất cả code đều được viết bằng CHATGPT và được kiểm tra tính hợp lý.
 
 Các APP:
